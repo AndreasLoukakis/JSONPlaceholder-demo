@@ -14,7 +14,7 @@ export class ListgroupComponent implements OnInit {
   collection: Observable<User[]>;
   
   @Input()
-  paginationData: PaginationData;
+  paginationData$: Observable<PaginationData>;
 
   @Input()
   listClass: string;

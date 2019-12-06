@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PaginationData } from './../../../models/paginationData';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pagination',
@@ -9,7 +10,7 @@ import { PaginationData } from './../../../models/paginationData';
 export class PaginationComponent implements OnInit {
 
   @Input()
-  paginationData: PaginationData;
+  paginationData$: Observable<PaginationData>;
 
   @Input()
   items: any[];
@@ -17,14 +18,21 @@ export class PaginationComponent implements OnInit {
   @Output()
   pageChange: EventEmitter<number> = new EventEmitter();
 
-  pages: number[];
+  pages: number[] = [];
+  currentPage: number;
 
   constructor() { }
 
   ngOnInit() {
-    const totalpages = Math.ceil(this.paginationData.totalItems / this.paginationData.itemsPerPage);
-    for (let i = 0; i < totalpages; i++) { this.pages.push(i); }
-    debugger
+    this.paginationData$.subscribe(
+      pageData => {
+        this.pages = [];
+        this.currentPage = pageData.currentPage;
+        const totalpages = Math.ceil(pageData.totalItems / pageData.itemsPerPage);
+        for (let i = 1; i <= totalpages; i++) { this.pages.push(i); }
+      }
+    )
+    
   }
 
   onPageChange(page: number) {

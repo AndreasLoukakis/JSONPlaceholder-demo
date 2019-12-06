@@ -5,7 +5,7 @@
     <div class="home-wrap">
         <app-listgroup
             (details)="onDetails($event)" (edit)="onEdit($event)" (delete)="onDelete($event)" (pageChange)="onPageChange($event)"
-            [paginationData]="paginationData"
+            [paginationData$]="paginationData$"
             [collection]="usersData$" listClass="table-bordered" [listColumns]="listColumns">
         </app-listgroup>
     </div>
