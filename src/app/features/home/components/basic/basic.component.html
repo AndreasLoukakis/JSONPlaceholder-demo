@@ -1,0 +1,16 @@
+<ng-container *ngIf="mode === 'table'">
+    <td *ngFor="let col of listColumns">
+        {{item[col.val]}}
+    </td>
+</ng-container>
+<ng-container *ngIf="mode !== 'table'">
+    <div class="other-data flex-fill">
+        <h5>Basic info</h5>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>username:</strong> {{item.username}}</li>
+            <li class="list-group-item"><strong>email:</strong> {{item.email}}</li>
+            <li class="list-group-item"><strong>phone:</strong> {{item.phone}}</li>
+            <li class="list-group-item"><strong>website:</strong> {{item.website}}</li>
+        </ul>
+    </div>
+</ng-container>

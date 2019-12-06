@@ -1,0 +1,12 @@
+<div class="contact-wrap container">
+    <h2>Displaying data from https://jsonplaceholder.typicode.com/users</h2>
+    <p class="muted">CRUD is mock-persisted</p>
+    <span class="create-action" (click)="onCreate()"><fa-icon [icon]="plusIcon"></fa-icon> Create new user</span>
+    <div class="home-wrap">
+        <app-listgroup
+            (details)="onDetails($event)" (edit)="onEdit($event)" (delete)="onDelete($event)" (pageChange)="onPageChange($event)"
+            [paginationData]="paginationData"
+            [collection]="usersData$" listClass="table-bordered" [listColumns]="listColumns">
+        </app-listgroup>
+    </div>
+</div>

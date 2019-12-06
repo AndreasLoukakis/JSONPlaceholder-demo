@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">VI</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="userSignedIn">
+      <ul class="navbar-nav mr-auto">
+        <li *ngFor="let nav of navLinks" class="nav-item active">
+            <a routerLink="/{{nav.route}}" routerLinkActive="active" class="nav-link" href="#">
+              <fa-icon [icon]="nav.icon"></fa-icon> {{nav.title}}
+            </a>
+        </li>
+      </ul>
+
+      <ng-container *ngFor="let link of links">
+        <a (click)="link.action()" class="nav-link helper-link"><fa-icon [icon]="link.icon"></fa-icon> {{link.title}}</a>
+      </ng-container>
+    </div>
+  </div>
+</nav>

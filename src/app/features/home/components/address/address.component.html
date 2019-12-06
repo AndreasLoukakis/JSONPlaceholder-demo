@@ -1,0 +1,21 @@
+<div class="user-address flex-fill">
+    <h5>Address data</h5>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <strong>Street:</strong> {{address.street}}
+        </li>
+        <li class="list-group-item">
+            <strong>Suite:</strong> {{address.suite}}
+        </li>
+        <li class="list-group-item">
+            <strong>City:</strong> {{address.city}}
+        </li>
+        <li class="list-group-item">
+            <strong>Zipcode:</strong> {{address.zipcode}}
+        </li>
+        <li class="list-group-item">
+            <strong>Lat:</strong> {{address.geo.lat}} <strong>Long:</strong> {{address.geo.lng}}
+            <a class="btn btn-sm btn-success" href="{{mapLink}}" target="_blank">View in google maps</a>
+        </li>
+    </ul>
+</div>

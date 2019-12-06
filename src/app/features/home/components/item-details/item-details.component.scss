@@ -1,0 +1,18 @@
+.list-item-custom {
+    padding: 20px;
+    background: white;
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+    position: relative;
+    margin-top: 2em;
+
+    .item-title {
+        display: inline-block;
+        padding: 10px 20px;
+        background: white;
+        border-top: 1px solid #f0f0f0;
+        border-left: 1px solid #f0f0f0;
+        border-right: 1px solid #f0f0f0;
+        transform: translateY(-100%);
+    }
+}

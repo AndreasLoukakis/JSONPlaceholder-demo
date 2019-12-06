@@ -1,0 +1,12 @@
+<ng-container *ngIf="mode !== 'table'">
+    <div class="actions-wrap btn-group">
+        <button (click)="onDetails()" type="button" class="btn btn-sm btn-success">Details</button>
+        <button (click)="onDelete()" type="button" class="btn btn-sm btn-danger">Delete User</button>
+        <button (click)="onEdit()" type="button" class="btn btn-sm btn-primary">Edit User</button>
+    </div>
+</ng-container>
+<ng-container *ngIf="mode === 'table'">
+    <button (click)="onDetails()" type="button" class="btn btn-sm btn-success">Details</button>
+    <button (click)="onDelete()" type="button" class="btn btn-sm btn-danger">Delete User</button>
+    <button (click)="onEdit()" type="button" class="btn btn-sm btn-primary">Edit User</button>
+</ng-container>

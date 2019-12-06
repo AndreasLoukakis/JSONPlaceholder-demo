@@ -1,0 +1,123 @@
+<div class="form-container container">
+  <h2 *ngIf="isEditMode && currentUser">Editing user #{{currentUser.id}} {{currentUser.name}}
+    <small>NOTE: the edited user will be passed in route state, to modify user list after save</small>
+  </h2>
+  <h2 *ngIf="!isEditMode">Create new user 
+    <small>NOTE: New user will be passed in route state, to get added to the user list after save.</small></h2>
+  <form *ngIf="userForm"
+      [formGroup]="userForm"
+      (submit)="handleSubmit($event)">
+    <div class="form-col-wrap d-flex">
+
+      <div class="form-column flex-fill">
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" formControlName="name" class="form-control" id="name" required>
+          <app-validation-errors [group]="userForm" field="name"></app-validation-errors>
+        </div>
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" formControlName="username" class="form-control" id="username" required>
+          <app-validation-errors [group]="userForm" field="username"></app-validation-errors>
+        </div>
+
+      </div>
+
+      <div class="form-column flex-fill">
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" formControlName="email" class="form-control" id="email">
+          <app-validation-errors [group]="userForm" field="email"></app-validation-errors>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="text" formControlName="phone" class="form-control" id="phone">
+          <app-validation-errors [group]="userForm" field="phone"></app-validation-errors>
+        </div>
+
+        <div class="form-group">
+          <label for="website">Website</label>
+          <input type="text" formControlName="website" class="form-control" id="website">
+          <app-validation-errors [group]="userForm" field="website"></app-validation-errors>
+        </div>
+
+      </div>
+    </div>
+    <h5 class="text-center">Address data</h5>
+    <div class="form-col-wrap d-flex" formGroupName="address">
+      
+      <div class="form-column flex-fill">
+        
+        <div class="form-group">
+          <label for="street">Street</label>
+          <input type="text" formControlName="street" class="form-control" id="street">
+        </div>
+
+        <div class="form-group">
+          <label for="suite">Suit</label>
+          <input type="text" formControlName="suite" class="form-control" id="suite">
+        </div>
+
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" formControlName="city" class="form-control" id="city">
+        </div>
+
+        <div class="form-group">
+          <label for="zipcode">Zip code</label>
+          <input type="text" formControlName="zipcode" class="form-control" id="zipcode">
+        </div>
+
+
+      </div>
+
+      <div class="form-column flex-fill" formGroupName="geo">
+        <div class="form-group">
+          <label for="lat">Latitude</label>
+          <input type="text" formControlName="lat" class="form-control" id="lat">
+        </div>
+
+        <div class="form-group">
+          <label for="lng">Longtitude</label>
+          <input type="text" formControlName="lng" class="form-control" id="lng">
+        </div>
+
+      </div>
+    </div>
+
+    <!-- asdfasdf -->
+    <h5 class="text-center">Company data</h5>
+    <div class="form-col-wrap d-flex" formGroupName="company">
+      
+      <div class="form-column flex-fill">
+        
+        <div class="form-group">
+          <label for="cname">Company name</label>
+          <input type="text" formControlName="name" class="form-control" id="cname">
+        </div>
+
+        <div class="form-group">
+          <label for="catchPhrase">Catch phrase</label>
+          <input type="text" formControlName="catchPhrase" class="form-control" id="catchPhrase">
+        </div>
+
+      </div>
+
+      <div class="form-column flex-fill">
+
+        <div class="form-group">
+          <label for="bs">BS</label>
+          <input type="text" formControlName="bs" class="form-control" id="bs">
+        </div>
+
+      </div>
+    </div>
+
+    <button [disabled]="!userForm.valid" type="submit" class="btn btn-primary form-control">Submit</button>
+    <button (click)="handleCancel()" type="button" class="btn btn-secondarys form-control">Cancel</button>
+  </form>
+</div>

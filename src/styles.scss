@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+.navbar.bg-light {
+    background-color: #e60000 !important;
+}
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+    color: white !important;
+}
+
+.list-item-custom app-basic ul.list-group.list-group-flush {
+    flex-direction: row;
+}
+
+.list-item-custom app-basic h5 {
+    display: none;
+}

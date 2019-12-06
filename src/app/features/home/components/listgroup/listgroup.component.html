@@ -1,0 +1,21 @@
+<table class="table {{listClass}}">
+    <thead>
+        <tr>
+            <th *ngFor="let col of listColumns;">{{col.desc}}</th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let person of collection | async">
+            <td *ngFor="let col of listColumns">
+                {{person[col.val]}}
+            </td>
+            <td>
+                <app-actions (details)="onDetails($event)" (edit)="onEdit($event)" (delete)="onDelete($event)"
+                    [item]="person">
+                </app-actions>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<app-pagination (pageChange)=onPageChange($event) [items]="items" [paginationData]="paginationData"></app-pagination>
